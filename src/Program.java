@@ -1,9 +1,14 @@
+import java.awt.*;
 
-public class Program {
+public class Program extends Canvas implements Runnable{
+    //private static final long serialVersionUID = 1L;
+
+    public void run(){
+        
+    }
+
     public static void main(String[] args) {
 
-        System.out.printf("Hello! World!");
-        System.out.printf("Hello! World!");
 
     }
 }
