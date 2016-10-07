@@ -13,6 +13,9 @@ public class SnakeGame extends JPanel {
     public void paint(Graphics g){
         g.setColor(color(50,100,100));
         g.fillRect(0,0,WIDTH,HEIGHT);
+
+        g.setColor(color(0,250,250));
+        g.drawString("*",100,100);
     }
 
     public Color color(int red, int green, int blue){
@@ -30,4 +33,5 @@ public class SnakeGame extends JPanel {
         frame.setVisible(true);
 
     }
+
 }
