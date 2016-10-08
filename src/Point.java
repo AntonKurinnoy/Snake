@@ -11,20 +11,40 @@ public class Point {
         this.sym = sym;
     }
 
-    /*public Color setColor(int red, int green, int blue){
-        return new Color(red,green,blue);
-    }*/
+    public Point(Point p) {
+        this.x = p.getX();
+        this.y = p.getY();
+        this.sym = p.getSym();
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public String getSym() {
+        return sym;
+    }
+
+    public void Move(int offset, Direction direction){
+        if (direction == Direction.RIGHT){
+            x = x + offset;
+        }
+        if (direction == Direction.LEFT){
+            x = x - offset;
+        }
+        if (direction == Direction.UP){
+            y = y + offset;
+        }
+        if (direction == Direction.DOWN){
+            y = y - offset;
+        }
+    }
 
     public void draw(Graphics g){
         g.drawString(this.sym,this.x,this.y);
-    }
-
-    @Override
-    public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                ", sym=" + sym +
-                '}';
     }
 }

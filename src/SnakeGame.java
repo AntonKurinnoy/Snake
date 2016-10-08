@@ -15,10 +15,6 @@ public class SnakeGame extends JPanel {
         g.fillRect(0,0,WIDTH,HEIGHT);
 
         g.setColor(color(255,255,0));
-        Point p1 = new Point(100,100,"*");
-        p1.draw(g);
-        Point p2 = new Point(200,200,"#");
-        p2.draw(g);
 
         g.getClipBounds();
         HorizontalLine hLine1 = new HorizontalLine(0,WIDTH,8,"=");
@@ -29,6 +25,10 @@ public class SnakeGame extends JPanel {
         vLine1.Draw(g);
         VerticalLine vLine2 = new VerticalLine(588,0,HEIGHT,"||");
         vLine2.Draw(g);
+
+        Point p = new Point(100,100,"*");
+        Snake snake = new Snake(p,50,Direction.RIGHT);
+        snake.Draw(g);
 
 
     }
