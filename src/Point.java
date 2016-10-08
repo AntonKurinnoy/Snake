@@ -11,11 +11,20 @@ public class Point {
         this.sym = sym;
     }
 
-    public Color setColor(int red, int green, int blue){
+    /*public Color setColor(int red, int green, int blue){
         return new Color(red,green,blue);
-    }
+    }*/
 
     public void draw(Graphics g){
         g.drawString(this.sym,this.x,this.y);
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                ", sym=" + sym +
+                '}';
     }
 }
