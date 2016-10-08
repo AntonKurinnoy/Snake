@@ -29,7 +29,7 @@ public class Point {
         return sym;
     }
 
-    public void Move(int offset, Direction direction){
+    public void move(int offset, Direction direction){
         if (direction == Direction.RIGHT){
             x = x + offset;
         }
@@ -44,7 +44,14 @@ public class Point {
         }
     }
 
+    public void clear(Graphics g){
+        sym = " ";
+        g.drawString(sym,this.x,this.y);
+
+    }
+
     public void draw(Graphics g){
         g.drawString(this.sym,this.x,this.y);
     }
+
 }

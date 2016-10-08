@@ -7,9 +7,6 @@ public class SnakeGame extends JPanel {
     public static int HEIGHT = 550;
     public static String NAME = "MY GAME!!!";
 
-    /*public SnakeGame() {
-    }*/
-
     public void paint(Graphics g){
         g.setColor(color(50,50,100));
         g.fillRect(0,0,WIDTH,HEIGHT);
@@ -18,17 +15,19 @@ public class SnakeGame extends JPanel {
 
         g.getClipBounds();
         HorizontalLine hLine1 = new HorizontalLine(0,WIDTH,8,"=");
-        hLine1.Draw(g);
+        hLine1.draw(g);
         HorizontalLine hLine2 = new HorizontalLine(0,WIDTH,522,"=");
-        hLine2.Draw(g);
+        hLine2.draw(g);
         VerticalLine vLine1 = new VerticalLine(0,0,HEIGHT,"||");
-        vLine1.Draw(g);
+        vLine1.draw(g);
         VerticalLine vLine2 = new VerticalLine(588,0,HEIGHT,"||");
-        vLine2.Draw(g);
+        vLine2.draw(g);
 
         Point p = new Point(100,100,"*");
         Snake snake = new Snake(p,50,Direction.RIGHT);
-        snake.Draw(g);
+        snake.draw(g);
+        //snake.move(g);
+
 
 
     }
@@ -36,8 +35,6 @@ public class SnakeGame extends JPanel {
     public Color color(int red, int green, int blue){
         return new Color(red, green, blue);
     }
-
-
 
     public static void main(String[] args) {
 
