@@ -1,9 +1,10 @@
-import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Snake extends Figure{
+public class Snake {
 
     Direction direction;
+    public List<Point> pList;
 
     public Snake(Point tail, int lenght, Direction d){
 
@@ -11,26 +12,27 @@ public class Snake extends Figure{
         pList = new ArrayList<>();
         for (int i = 0; i < lenght; i++) {
             Point p = new Point(tail);
-            p.move(i, d);
+            p.pMove(i, d);
             pList.add(p);
         }
     }
 
-    /*public void move(Graphics g){
+    public List<Point> getpList() {
+        return pList;
+    }
+
+    public void sMove(){
         Point tail = pList.get(0);
         pList.remove(tail);
         Point head = GetNextPoint();
         pList.add(head);
-
-        tail.clear(g);
-        head.draw(g);
     }
 
     public Point GetNextPoint(){
-        Point head = pList.get(pList.size());
+        Point head = pList.get(pList.size()-1);
         Point nextPoint = new Point(head);
-        nextPoint.move(1,direction);
+        nextPoint.pMove(1,direction);
         return nextPoint;
-    }*/
+    }
 
 }

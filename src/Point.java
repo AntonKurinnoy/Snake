@@ -1,20 +1,16 @@
-import java.awt.*;
 
 public class Point {
     public int x;
     public int y;
-    public String sym;
 
-    public Point(int x, int y, String sym) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
-        this.sym = sym;
     }
 
     public Point(Point p) {
         this.x = p.getX();
         this.y = p.getY();
-        this.sym = p.getSym();
     }
 
     public int getX() {
@@ -25,33 +21,24 @@ public class Point {
         return y;
     }
 
-    public String getSym() {
-        return sym;
-    }
 
-    public void move(int offset, Direction direction){
+    public void pMove(int offset, Direction direction){
         if (direction == Direction.RIGHT){
-            x = x + offset;
+            x = x + offset*SnakeGame.SCALE;
         }
-        if (direction == Direction.LEFT){
-            x = x - offset;
+        else if (direction == Direction.LEFT){
+            x = x - offset*SnakeGame.SCALE;
         }
-        if (direction == Direction.UP){
-            y = y + offset;
+        else if (direction == Direction.UP){
+            y = y - offset*SnakeGame.SCALE;
         }
-        if (direction == Direction.DOWN){
-            y = y - offset;
+        else if (direction == Direction.DOWN){
+            y = y + offset*SnakeGame.SCALE;
         }
     }
 
-    public void clear(Graphics g){
-        sym = " ";
-        g.drawString(sym,this.x,this.y);
-
-    }
-
-    public void draw(Graphics g){
+    /*public void draw(Graphics g){
         g.drawString(this.sym,this.x,this.y);
-    }
+    }*/
 
 }
