@@ -1,28 +1,39 @@
+import java.util.Random;
 
 public class Point {
-    public int x;
-    public int y;
+    private int x;
+    private int y;
 
-    public Point(int x, int y) {
+    Point(){
+    }
+
+    Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public Point(Point p) {
+    Point(Point p) {
         this.x = p.getX();
         this.y = p.getY();
     }
 
-    public int getX() {
+    int getX() {
         return x;
     }
 
-    public int getY() {
+    int getY() {
         return y;
     }
 
+    void setX(int x) {
+        this.x = x;
+    }
 
-    public void pMove(int offset, Direction direction){
+    void setY(int y) {
+        this.y = y;
+    }
+
+    void pMove(int offset, Direction direction){
         if (direction == Direction.RIGHT){
             x = x + offset*SnakeGame.SCALE;
         }
@@ -37,8 +48,25 @@ public class Point {
         }
     }
 
-    /*public void draw(Graphics g){
-        g.drawString(this.sym,this.x,this.y);
-    }*/
+    Point createFood(){
+        Point food;
+        boolean containsB = false;
+        Random r = new Random();
+        do {
+            food = new Point(r.nextInt(20)*SnakeGame.SCALE, r.nextInt(19)*SnakeGame.SCALE);
+            for (int i = 0; i < SnakeGame.snake.pList.size(); i++) {
+                if ((SnakeGame.snake.pList.get(i).getX() == food.getX()) &&
+                        (SnakeGame.snake.pList.get(i).getY() == food.getY()))
+                    containsB = true;
+                if (containsB) i = SnakeGame.snake.pList.size();
+            }
+        }while (containsB);
+        return food;
+    }
 
+
+    @Override
+    public String toString() {
+        return "x= " + x + "y= " + y;
+    }
 }
