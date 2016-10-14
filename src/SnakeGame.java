@@ -26,10 +26,11 @@ public class SnakeGame extends JPanel implements ActionListener{
 
     public void paint(Graphics g){
 
+        //заполняем фон
         g.setColor(color(189,183,107));
         g.fillRect(0, 0, WIDTH*SCALE, HEIGHT*SCALE);
 
-
+        //рисуем сетку (можно скрыть)
         g.setColor(color(255,255,255));
         for (int x = 0; x <= WIDTH*SCALE; x+=SCALE) {
             g.drawLine(x,0,x,HEIGHT*SCALE);
@@ -38,6 +39,7 @@ public class SnakeGame extends JPanel implements ActionListener{
             g.drawLine(0,y,WIDTH*SCALE,y);
         }
 
+        //рисуем змейку
         for (int i = 0; i < snake.pList.size(); i++) {
             g.setColor(color(240, 230, 15));
             g.fillRoundRect(snake.pList.get(i).getX()+2,snake.pList.get(i).getY()+2,SCALE-2,SCALE-2,30,30);
@@ -47,6 +49,7 @@ public class SnakeGame extends JPanel implements ActionListener{
             }
         }
 
+        //рисуем еду
         g.setColor(color(100,105,90));
         g.fill3DRect(food.getX()+2,food.getY()+2,SCALE-2,SCALE-2,true);
 
@@ -65,7 +68,7 @@ public class SnakeGame extends JPanel implements ActionListener{
         frame.setLocationRelativeTo(null);
         frame.add(new SnakeGame());
         frame.setVisible(true);
-        
+
     }
 
     @Override

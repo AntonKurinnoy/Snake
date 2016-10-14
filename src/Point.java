@@ -33,6 +33,7 @@ public class Point {
         this.y = y;
     }
 
+    //передвигаем точку в пространстве в одном из направлений
     void pMove(int offset, Direction direction){
         if (direction == Direction.RIGHT){
             x = x + offset*SnakeGame.SCALE;
@@ -48,10 +49,12 @@ public class Point {
         }
     }
 
+    //генерируем еду
     Point createFood(){
         Point food;
         boolean containsB = false;
         Random r = new Random();
+        //проверяем не попала ли наша еда на тело змейки
         do {
             food = new Point(r.nextInt(20)*SnakeGame.SCALE, r.nextInt(19)*SnakeGame.SCALE);
             for (int i = 0; i < SnakeGame.snake.pList.size(); i++) {
